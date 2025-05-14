@@ -1,0 +1,9 @@
+[submodule "epics-base"]
+	path = epics-base
+	url = https://github.com/epics-base/epics-base
+[submodule "asyn"]
+	path = asyn
+	url = https://github.com/epics-modules/asyn
+[submodule "modbus"]
+	path = modbus
+	url = https://github.com/epics-modules/modbus
