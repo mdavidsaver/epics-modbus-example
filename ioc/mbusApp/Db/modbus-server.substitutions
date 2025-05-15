@@ -1,0 +1,5 @@
+
+file "int16.db" {
+{P="\$(P)ADDR0:", PORT="\$(PORT)", REG="0"}
+{P="\$(P)COUNT:", PORT="\$(PORT)", REG="10"}
+}

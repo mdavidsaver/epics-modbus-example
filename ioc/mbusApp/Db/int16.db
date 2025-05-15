@@ -1,0 +1,13 @@
+# Directly read integer
+record(longin, "$(P)-I") {
+    field(DTYP, "asynInt32")
+    field(INP , "@asyn($(PORT),$(REG),100)MODBUS_DATA")
+    field(SCAN, "I/O Intr")
+}
+# Scale integer as real
+record(ai, "$(P)F-I") {
+    field(DTYP, "asynInt32")
+    field(INP , "@asyn($(PORT),$(REG),100)MODBUS_DATA")
+    field(SCAN, "I/O Intr")
+    field(ASLO, "0.1") # integer 12 -> real 1.2
+}
