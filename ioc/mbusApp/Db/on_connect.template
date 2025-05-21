@@ -1,0 +1,26 @@
+record(asyn,"$(P)asyn_")
+{
+    field(DTYP,"asynRecordDevice")
+    field(PORT,"$(PORT)")
+    field(ADDR,"$(ADDR=0)")
+    # CNCT updates regardless of SCAN
+}
+
+record(bi, "$(P)Comm-Sts") {
+    field(INP , "$(P)asyn_.CNCT CP MS")
+    field(ZNAM, "Discon")
+    field(ONAM, "Conn")
+    field(ZSV , "MAJOR")
+    field(FLNK, "$(P)Reconn_")
+}
+
+record(calcout, "$(P)Reconn_") {
+    field(INPA, "$(P)asyn_.CNCT CP MS")
+    field(CALC, "A")
+    field(OOPT, "Transition To Non-zero")
+    field(OUT , "$(P)OnConn_ PP")
+}
+
+record(longin, "$(P)OnConn_") {
+    field(MDEL, "-1") # always post on process, even when not changing
+}

@@ -1,7 +1,12 @@
 # Example EPICS IOC with ModbusTCP driver
 
 An example of an EPICS IOC using the modbus driver to communicate
-with a simulation modbus server.
+with a simulation modbus server/device.
+
+This example shows a situation where the IOC holds the authoritative
+value for all setting records.
+This value is re-written to the device each time the TCP connection
+is re-established.
 
 # Requirements
 
@@ -40,19 +45,4 @@ In a third terminal run a client
 ```sh
 cd epics-modbus-example
 ./epics-base/bin/*/camonitor TST:COUNT:I
-```
-
-# Changing
-
-Interesting files:
-
-- `epics-modbus-example/ioc/iocBoot/iocexample/st.cmd`
-- `epics-modbus-example/ioc/mbusApp/Db/modbus-server.substitutions`
-- `epics-modbus-example/ioc/mbusApp/Db/int16.db`
-
-Changes under `mbusApp/` require a build.
-
-```sh
-cd epics-modbus-example
-./build.sh -j2
 ```

@@ -1,0 +1,9 @@
+record(longout, "$(P)$(N)") {
+    # automatically process after (re)connect
+    field(DISV, "-1") # OnConn_ always updates with "1", so "-1" never actually diables
+    field(SDIS, "$(P)OnConn_ CP")
+
+    field(DTYP, "asynInt32")
+    field(OUT , "@asyn(DEV_W_$(BASE),$(OFFSET),100)MODBUS_DATA")
+    field(EGU , "$(EGU=)")
+}

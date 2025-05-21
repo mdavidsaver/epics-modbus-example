@@ -1,5 +1,27 @@
 
-file "int16.db" {
-{P="\$(P)ADDR0:", PORT="\$(PORT)", REG="0"}
-{P="\$(P)COUNT:", PORT="\$(PORT)", REG="10"}
+file "integer_in.template" {
+{P="\$(P)", N="Pls-RB", BASE="3000", OFFSET="3"}
+}
+
+file "integer_out.template" {
+{P="\$(P)", N="Pls-SP", BASE="3000", OFFSET="3"}
+}
+
+file "analog_in.template" {
+{P="\$(P)", N="T:1-I", BASE="4000", OFFSET="0", ASLO="0.01"}
+{P="\$(P)", N="T:2-I", BASE="4000", OFFSET="2", ASLO="0.01"}
+}
+
+file "binary_in.template" {
+{P="\$(P)", N="Pls:Flt-Sts", BASE="3000", OFFSET="7", MASK="0x0200", ZNAM="Ok", ONAM="Fault", OSV="MAJOR"}
+}
+
+# special cases...
+file "status_enum_in.template" {
+{P="\$(P)", N="P:1-I", BASE="5300", OFFSET="1"}
+{P="\$(P)", N="P:2-I", BASE="5400", OFFSET="1"}
+}
+
+file "on_connect.template" {
+{P="\$(P)", PORT="DEV"}
 }

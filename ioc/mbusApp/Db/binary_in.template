@@ -1,0 +1,10 @@
+record(bi, "$(P)$(N)") {
+    field(DTYP, "asynInt32")
+    field(INP , "@asyn(DEV_R_$(BASE),$(OFFSET),100)MODBUS_DATA")
+    field(SCAN, "I/O Intr")
+    field(MASK, "$(MASK)")
+    field(ZNAM, "$(ZNAM=Zero)")
+    field(ONAM, "$(ONAM=One)")
+    field(ZSV , "$(ZSV=)")
+    field(OSV , "$(OSV=)")
+}

@@ -1,0 +1,9 @@
+record(ai, "$(P)$(N)") {
+    field(DTYP, "asynInt32")
+    field(INP , "@asyn(DEV_R_$(BASE),$(OFFSET),100)MODBUS_DATA")
+    field(SCAN, "I/O Intr")
+    field(ASLO, "$(ASLO=)")
+    field(AOFF, "$(AOFF=)")
+    field(EGU , "$(EGU=)")
+    field(PREC, "$(PREC=)")
+}
