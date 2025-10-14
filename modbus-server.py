@@ -27,7 +27,7 @@ async def main():
     reg.values[502: 752] = (np.sin(2*np.pi*2e3*T)*20000).astype('i2')
     reg.values[751:1002] = (np.sin(2*np.pi*2e3*T)*25000).astype('i2')
 
-    reg.values[1+3007] = 0b1000000000 # SIN_Pulser_Fault - system fault
+    reg.values[1+3007] = 0b0000000001
 
     reg.values[1+4000] = 17*100 # SIK_T1_Measure
     reg.values[1+4002] = int(18.5*100) # SIK_T2_Measure
@@ -38,6 +38,9 @@ async def main():
             await asyncio.sleep(1.0)
             reg.values[1+5401] = status
             status = (status+1)%7
+
+            reg.values[1+3007] ^= 0b1000000000 # SIN_Pulser_Fault - system fault
+
 
     ticker = asyncio.create_task(ticker())
 
