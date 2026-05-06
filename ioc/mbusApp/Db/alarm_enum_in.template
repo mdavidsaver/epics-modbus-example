@@ -1,0 +1,17 @@
+record(mbbi, "$(P)$(N)") {
+    field(DTYP, "asynInt32")
+    field(INP , "@asyn(DEV_R_$(BASE),$(OFFSET),100)MODBUS_DATA")
+    field(SCAN, "I/O Intr")
+    field(ZRVL, "0")
+    field(ONVL, "1")
+    field(TWVL, "2")
+    field(THVL, "3")
+    field(ZRST, "No Alarm")
+    field(ONST, "Minor")
+    field(TWST, "Major")
+    field(THST, "Invalid")
+    field(ZRSV, "NO_ALARM")
+    field(ONSV, "MINOR")
+    field(TWSV, "MAJOR")
+    field(THSV, "INVALID")
+}

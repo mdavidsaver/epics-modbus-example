@@ -29,6 +29,9 @@ file "on_connect.template" {
 {P="\$(P)", PORT="DEV"}
 }
 
+file "alarm_enum_in.template" {
+{P="\$(P)", N="Alm-I_", BASE="3000", OFFSET="5"}
+}
 file "timestamp.template" {
 {P="\$(P)"}
 }

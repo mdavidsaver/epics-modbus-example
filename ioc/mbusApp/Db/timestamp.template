@@ -1,3 +1,6 @@
+record("*", "$(P)Alm-I_") {
+    field(PHAS, "-2")
+}
 record("*", "$(P)TS:0-RB") {
     field(PHAS, "-2")
 }
@@ -29,11 +32,15 @@ record(ai, "$(P)T_") {
 }
 
 record("*", "$(P)Pls:Flt-Sts") {
+    field(SDIS, "$(P)Alm-I_ MSS")
+    field(DISV, "-42")
     field(SCAN, "Passive")
     field(TSEL, "$(P)T_.TIME")
     field(FLNK, "$(P)P:3-I")
 }
 record("*", "$(P)P:3-I") {
+    field(SDIS, "$(P)Alm-I_ MSS")
+    field(DISV, "-42")
     field(SCAN, "Passive")
     field(TSEL, "$(P)T_.TIME")
 }

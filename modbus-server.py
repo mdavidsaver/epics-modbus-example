@@ -44,6 +44,7 @@ async def main():
             reg.values[1+5401] = status
             status = (status+1)%7
 
+            reg.values[1+3005] = status%4
             reg.values[1+3006] = status
             reg.values[1+3007] ^= 0b1000000000 # SIN_Pulser_Fault - system fault
 
