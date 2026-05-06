@@ -53,8 +53,6 @@ async def main():
             ),
         ),
         address=('127.0.0.1', 5020),
-        allow_reuse_address=True,
-        defer_start=True,
     )
 
     stop = asyncio.Event()
