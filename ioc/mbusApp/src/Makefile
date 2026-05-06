@@ -18,6 +18,7 @@ DBD += mbus.dbd
 
 # mbus.dbd will be made up from these files:
 mbus_DBD += base.dbd
+mbus_DBD += copyTime.dbd
 
 # Include dbd files from all support applications:
 mbus_DBD += modbusSupport.dbd
@@ -29,6 +30,7 @@ mbus_LIBS += modbus
 
 # mbus_registerRecordDeviceDriver.cpp derives from mbus.dbd
 mbus_SRCS += mbus_registerRecordDeviceDriver.cpp
+mbus_SRCS += copyTime.c
 
 # Build the main IOC entry point on workstation OSs.
 mbus_SRCS_DEFAULT += mbusMain.cpp
