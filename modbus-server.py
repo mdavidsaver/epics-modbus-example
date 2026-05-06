@@ -6,6 +6,7 @@ Serves holding registers 0-63.
 Register 10 is a 1Hz counter.
 """
 
+import time
 import asyncio
 import signal
 import logging
@@ -36,11 +37,20 @@ async def main():
         status = 0
         while True:
             await asyncio.sleep(1.0)
+            now = time.time()
+            sec, ns = divmod(now, 1.0)
+            sec, ns = int(sec), int(ns*1e9)
+
             reg.values[1+5401] = status
             status = (status+1)%7
 
+            reg.values[1+3006] = status
             reg.values[1+3007] ^= 0b1000000000 # SIN_Pulser_Fault - system fault
 
+            reg.values[1+3000] = (sec>>16)&0xffff
+            reg.values[1+3001] = (sec>>0 )&0xffff
+            reg.values[1+3002] = (ns>>16)&0xffff
+            reg.values[1+3003] = (ns>>0 )&0xffff
 
     ticker = asyncio.create_task(ticker())
 

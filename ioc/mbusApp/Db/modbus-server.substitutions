@@ -1,11 +1,13 @@
 
 file "integer_in.template" {
-{P="\$(P)", N="Pls-RB", BASE="3000", OFFSET="3"}
+{P="\$(P)", N="TS:0-RB", BASE="3000", OFFSET="0"}
+{P="\$(P)", N="TS:1-RB", BASE="3000", OFFSET="1"}
+{P="\$(P)", N="TS:2-RB", BASE="3000", OFFSET="2"}
+{P="\$(P)", N="TS:3-RB", BASE="3000", OFFSET="3"}
 }
 
-file "integer_out.template" {
-{P="\$(P)", N="Pls-SP", BASE="3000", OFFSET="3"}
-}
+# file "integer_out.template" {
+# }
 
 file "analog_in.template" {
 {P="\$(P)", N="T:1-I", BASE="4000", OFFSET="0", ASLO="0.01"}
@@ -20,8 +22,13 @@ file "binary_in.template" {
 file "status_enum_in.template" {
 {P="\$(P)", N="P:1-I", BASE="5300", OFFSET="1"}
 {P="\$(P)", N="P:2-I", BASE="5400", OFFSET="1"}
+{P="\$(P)", N="P:3-I", BASE="3000", OFFSET="6"}
 }
 
 file "on_connect.template" {
 {P="\$(P)", PORT="DEV"}
+}
+
+file "timestamp.template" {
+{P="\$(P)"}
 }

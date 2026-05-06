@@ -1,0 +1,39 @@
+record("*", "$(P)TS:0-RB") {
+    field(PHAS, "-2")
+}
+record("*", "$(P)TS:1-RB") {
+    field(PHAS, "-2")
+}
+record("*", "$(P)TS:2-RB") {
+    field(PHAS, "-2")
+}
+record("*", "$(P)TS:3-RB") {
+    field(PHAS, "-1")
+    field(FLNK, "$(P)Now-I_")
+}
+
+record(calcout, "$(P)Now-I_") {
+    field(INPA, "$(P)TS:0-RB NPP")
+    field(INPB, "$(P)TS:1-RB NPP")
+    field(INPC, "$(P)TS:2-RB NPP")
+    field(INPD, "$(P)TS:3-RB NPP")
+    field(INPE, "1e-9")
+    field(CALC, "((A<<16)|(B&0xffff)) + E*((C<<16)|(D&0xffff))")
+    field(FLNK, "$(P)T_")
+}
+record(ai, "$(P)T_") {
+    field(DTYP, "Copy VAL 2 TIME")
+    field(TSE,  "-2")
+    field(INP,  "$(P)Now-I_")
+    field(FLNK, "$(P)Pls:Flt-Sts")
+}
+
+record("*", "$(P)Pls:Flt-Sts") {
+    field(SCAN, "Passive")
+    field(TSEL, "$(P)T_.TIME")
+    field(FLNK, "$(P)P:3-I")
+}
+record("*", "$(P)P:3-I") {
+    field(SCAN, "Passive")
+    field(TSEL, "$(P)T_.TIME")
+}
