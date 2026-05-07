@@ -21,9 +21,9 @@ sudo apt-get install git build-essential libreadline-dev python3-pymodbus
 Tested with Rocky Linux 8
 
 ```sh
-sudo dnf install glibc make readline-devel python3-virtualenv
+sudo dnf install git glibc make readline-devel python3-virtualenv
 virtualenv venv
-./venv/bin/pip install 'pymodbus~=3.0.0' 'numpy~=2.2.4'
+./venv/bin/pip install 'pymodbus~=3.8.0' 'numpy~=2.2.4'
 . venv/bin/activate
 ```
 
