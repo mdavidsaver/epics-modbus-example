@@ -16,6 +16,17 @@ Tested with Debian 12 on amd64 host.
 sudo apt-get install git build-essential libreadline-dev python3-pymodbus
 ```
 
+... or
+
+Tested with Rocky Linux 8
+
+```sh
+sudo dnf install glibc make readline-devel python3-virtualenv
+virtualenv venv
+./venv/bin/pip install 'pymodbus~=3.0.0' 'numpy~=2.2.4'
+. venv/bin/activate
+```
+
 # Setup
 
 ```sh
@@ -44,5 +55,5 @@ In a third terminal run a client
 
 ```sh
 cd epics-modbus-example
-./epics-base/bin/*/camonitor TST:COUNT:I
+./epics-base/bin/*/camonitor TST:Pls:Flt-Sts TST:P:3-I
 ```
